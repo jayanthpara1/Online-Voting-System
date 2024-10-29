@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .container input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        .container button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <label for="aadhar">Aadhar Number:</label>
+        <input type="text" id="aadhar">
+        <label for="voter-id">Voter ID:</label>
+        <input type="text" id="voter-id">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <script>
+        function login() {
+            var aadhar = document.getElementById("aadhar").value;
+            var voterId = document.getElementById("voter-id").value;
+
+            var userDetails = {
+                "User1": {"aadhar_number": "123456789012", "voter_id": "A1234"},
+                "User2": {"aadhar_number": "987654321098", "voter_id": "B5678"},
+                "User3": {"aadhar_number": "456789012345", "voter_id": "C9012"}
+            };
+
+            for (var user in userDetails) {
+                if (aadhar === userDetails[user]['aadhar_number'] && voterId === userDetails[user]['voter_id']) {
+                    alert("Login successful - Welcome " + user + "!");
+                    window.location.href = "voting.html";
+                    return;
+                }
+            }
+
+            alert("Invalid Aadhar number or Voter ID");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+DOCTYPE html>
+<html>
+<head>
+    <title>State Election System</title>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <form id="loginForm" action="" method="post">
+        <label for="aadhar">Aadhar Number:</label>
+        <input type="text" id="aadhar" name="aadhar" required><br><br>
+        
+        <label for="voterId">Voter ID:</label>
+        <input type="text" id="voterId" name="voterId" required><br><br>
+        
+        <button type="submit">Login</button>
+    </form>
+    
+    <p id="result"></p>
+    
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var aadhar = document.getElementById("aadhar").value.trim();
+            var voterId = document.getElementById("voterId").value.trim();
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/login", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    document.getElementById("result").innerHTML = response.message;
+                    if (response.success) {
+                        setTimeout(function() {
+                            window.location.href = "/voting";
+                        }, 2000);
+                    }
+                }
+            };
+            xhr.send(JSON.stringify({aadhar: aadhar, voterId: voterId}));
+        });
+    </script>
+</body>
+</html>

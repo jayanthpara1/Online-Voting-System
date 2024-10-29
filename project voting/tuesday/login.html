@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login to Mallareddy College</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            text-align: center;
+        }
+        .login-container form div {
+            margin-bottom: 15px;
+        }
+        .login-container form div::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .login-container form div label {
+            float: left;
+            text-align: right;
+            width: 120px;
+            padding-right: 10px;
+            line-height: 40px;
+            font-size: 24px; /* Increased font size */
+        }
+        .login-container form div input {
+            float: center;
+            width: 250px;
+            font-size: 24px; /* Increased font size */
+            padding: 8px; /* Increased padding */
+            box-sizing: border-box;
+        }
+        .login-container form div.submit {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-container form div.submit input {
+            font-size: 18px; /* Remaining the same size */
+            padding: 10px 20px;
+        }
+        .login-container h1 {
+            font-size: 36px; /* Increased heading font size */
+        }
+        .login-container a {
+            font-size: 20px; /* Increased link font size */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Mallareddy College</h1>
+        <br\>
+        <br\>
+        <br\>
+        <form>
+            <div>
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="submit">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+        <p><a href="registration.html">Register (Create an account)</a></p>
+    </div>
+</body>
+</html>
